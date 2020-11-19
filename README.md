@@ -10,9 +10,7 @@ Parameters
 Recommendation (initial image for _a/_b partitions), execute following command:
     miscgen 7 7 1 0 7 0
 
-It is part of the STMicroelectronics delivery for Android (see the [delivery][] for more information).
-
-[delivery]: https://wiki.st.com/stm32mpu/wiki/STM32MP15_distribution_for_Android_release_note_-_v2.0.0
+It is part of the STMicroelectronics delivery for Android.
 
 ## Description ##
 
@@ -22,10 +20,7 @@ Please see the release notes for more details.
 ## Documentation ##
 
 * The [release notes][] provide information on the release.
-* The [distribution package][] provides detailed information on how to use this delivery.
-
-[release notes]: https://wiki.st.com/stm32mpu/wiki/STM32MP15_distribution_for_Android_release_note_-_v2.0.0
-[distribution package]: https://wiki.st.com/stm32mpu/wiki/STM32MP1_Distribution_Package_for_Android
+[release notes]: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTDroid_release_note_-_v5.1.0
 
 ## Dependencies ##
 
