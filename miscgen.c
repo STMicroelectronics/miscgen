@@ -29,14 +29,21 @@
 
 // Added to help integrating c++11 header file
 #define constexpr static
-typedef struct misc_virtual_ab_message misc_virtual_ab_message;
-#include "bootloader.h"
 
-#include "private/boot_control_definition.h"
+// copy from hardware/interfaces/boot/1.1/default/boot_control/include/private/boot_control_definition.h
+#include "boot_control_definition.h"
 
 // struct boot_ctrl occupies the slot_suffix field of struct bootloader_message
 #define BOOTCTRL_OFFSET_SUFFIX offsetof(struct bootloader_message_ab, slot_suffix)
 #define BOOTCTRL_NUM_SLOT 2
+
+// Spaces used by misc partition are as below:
+// 0   - 2K     For bootloader_message
+// 2K  - 16K    Used by Vendor's bootloader (the 2K - 4K range may be optionally used
+//              as bootloader_message_ab struct)
+// 16K - 32K    Used by uncrypt and recovery to store wipe_package for A/B devices
+// 32K - 64K    System space, used for miscellanious AOSP features.
+#define MISC_SIZE_BYTES 64 * 1024
 
 static struct bootloader_control bctrl;
 static char *misc_file = "misc.img";
@@ -66,6 +73,15 @@ static void write_misc_suffix() {
   if(ret != sizeof(struct bootloader_control)) {
     close(fd);
     printf("%s, write failed, expect %u, actual %d\n", __FUNCTION__, (unsigned int)sizeof(struct bootloader_control), ret);
+    return;
+  }
+
+  char zero = 0;
+  lseek(fd, MISC_SIZE_BYTES -1, SEEK_SET);
+  ret = write(fd, &zero, 1);
+  if(ret != 1) {
+    close(fd);
+    printf("%s, write zero failed\n", __FUNCTION__);
     return;
   }
 

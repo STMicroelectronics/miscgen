@@ -29,10 +29,9 @@
 
 // Added to help integrating c++11 header file
 #define constexpr static
-typedef struct misc_virtual_ab_message misc_virtual_ab_message;
-#include "bootloader.h"
 
-#include "private/boot_control_definition.h"
+// copy from hardware/interfaces/boot/1.1/default/boot_control/include/private/boot_control_definition.h
+#include "boot_control_definition.h"
 
 // struct boot_ctrl occupies the slot_suffix field of struct bootloader_message
 #define BOOTCTRL_OFFSET_SUFFIX offsetof(struct bootloader_message_ab, slot_suffix)

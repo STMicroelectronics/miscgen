@@ -19,7 +19,7 @@ cc_binary_host {
     srcs: [
         "miscgen.c",
     ],
-    include_dirs:["bootable/recovery", "hardware/interfaces/boot/1.1/default/boot_control/include"],
+    local_include_dirs: ["include"],
     shared_libs: ["libz"],
     cflags: ["-Wall", "-Werror", "-Wno-unused-parameter"],
 }
@@ -29,7 +29,7 @@ cc_binary_host {
     srcs: [
         "miscread.c",
     ],
-    include_dirs:["bootable/recovery", "hardware/interfaces/boot/1.1/default/boot_control/include"],
+    local_include_dirs: ["include"],
     shared_libs: ["libz"],
     cflags: ["-Wall", "-Werror", "-Wno-unused-parameter"],
 }

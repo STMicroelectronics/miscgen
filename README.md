@@ -10,9 +10,6 @@ Parameters
 Recommendation (initial image for _a/_b partitions), execute following command:
     miscgen 7 7 1 0 7 0
 
-This module version is the updated version for STM32MP25 OpenSTDroid V5.0
-Please see the release notes for more details.
-
 ## Description ##
 
 This module version has been adapted to the boot control API v1.1 using default implementation
@@ -21,7 +18,7 @@ Please see the release notes for more details.
 ## Documentation ##
 
 * The [release notes][] provide information on the release.
-[release notes]: https://wiki.st.com/stm32mpu-ecosystem-v5/wiki/STM32_MPU_OpenSTDroid_release_note_-_v5.1.0
+[release notes]: https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTDroid_release_note_-_v6.2.0
 
 ## Dependencies ##
 
@@ -29,7 +26,7 @@ This module can't be used alone. It is part of the STMicroelectronics delivery f
 
 ## Containing ##
 
-This directory contains the sources and associated Android makefile to generate the miscgen host executable.
+This directory contains the sources and associated Android build file to generate the miscgen host executable.
 
 ## License ##
 
